@@ -80,6 +80,7 @@
                             その後Front-endの知識をより深めたいと思い、有料講義サイトで更に深いHTMLとCSS, JavaScriptそしてjQueryを学習しました。<br>
                             また、Reactというライブラリーを勉強しました。<br><br>
                             最近はFront-endとBack-end全てを利用してウェブを作りたいと思い、JSP, JAVA, MySQLを勉強してログイン機能や掲示板を作ってみました。
+                            続いて、SpringBootとThymeleafを使って更に質の高い構成と色んな機能を作ってみました。
                         </p>
                     </div>
                 </div>
@@ -101,12 +102,12 @@
         var chart = new Chart(ctx, {
             type: 'horizontalBar',
             data: {
-                labels: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'React', 'Java', 'JSP', 'MySQL'],
+                labels: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'React', 'Java', 'JSP', 'SpringBoot', 'MySQL'],
                 datasets: [{
                     label: '%',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: [75, 70, 60, 60, 55, 45, 45, 50, 0, 100]
+                    data: [70, 70, 60, 50, 50, 70, 50, 70, 75, 0, 100]
                 }]
             },
             options: {}
@@ -118,7 +119,139 @@
     <div class="projects pb-5" id="projects">
         <h2 class="p-5" style="font-weight: bold; color:#28235b">PROJECTS</h2>
         <div class="container">
+
             <div class="japanese white-box">
+                <h4 style="font-weight: bold; padding-bottom: 25px;">New Daily Japanese</h4>
+                <div class="projects-slide">
+                    <div>
+                        <img src="img/new1.jpg" style="width: 90%; margin:auto;">
+                    </div>
+                    <div style="text-align: left;">
+                        <ul type="square">
+                            <li>
+                                <h5>言語 / 技術</h5>
+                                <h6>HTML / CSS / JavaScript / Java / Thymeleaf / SpringBoot / MySQL</h6>
+                            </li>
+                            <li>
+                                <h5>参加度</h5>
+                                <h6>一人作り</h6>
+                            </li>
+                            <li>
+                                <h5>重点</h5>
+                                <h6>ログイン、権限別の機能付与、パスワードの変更、ID重複の確認、<br>
+                                    講義（コメントとコメント返しのロジック構築、ヒット数、印刷の機能）、<br>
+                                    掲示板（検索の機能、修正の機能、削除の機能、ページングの機能）、<br>
+                                    アルバム（イメージのアップロードとダウンロードの機能）、<br>
+                                    旅行（GoogleMap API、旅行スポットの保存の機能）
+                                </h6>
+                            </li>
+                            <li>
+                                <h5>サイトの目的</h5>
+                                <h6>日本について話し合うサイトをSpringBootを利用して <br>
+                                    Back-End　中心にサイトを作ってみたいと思って作ったサイトでございます。</h6>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="img/new2.jpg" alt="" style="width: 90%; margin:auto;">
+                        </div>
+                    </div>
+                    <div>
+                        <h5>1. ログイン / 権限</h5>
+                        <ul style="text-align: left; margin-top: 20px;">
+                            <li>Spring Securityを利用してログイン機能を作りました。</li>
+                            <li>Role テーブルと User テーブルをManyToManyで結合して <br>
+                                権限別に機能を‘付与し、 <br>
+                                Thymeleafを使って権限ごとに機能が見えるようにしました。</li>
+                            <li>ADMIN だけ Userの権限の変更や削除の機能が出来るように設定しました。</li>
+                            <li>PasswordEncoderを使ってパスワードを暗号化しました。</li>
+                            <li>パスワードの変更の機能を作りました。비밀번호를 변경하는 기능을 만들었고, <br>
+                                変更前にはパスワードの認証するように設定しました。</li>
+                            <li>DBにUsernameをUniqueで設定し、 <br>
+                                会員登録する際、IDの重複の場合Alertで案内出来るように作りました。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="img/new3.jpg" alt="" style="width: 90%; margin:auto;">
+                        </div>
+                    </div>
+                    <div>
+                        <h5>2. コメント / ヒット数 / 印刷</h5>
+                        <ul style="text-align: left; margin-top: 20px;">
+                            <li>Comment テーブルを作って<br>
+                                Lecture テーブルと User テーブルはManyToOneで連結し、
+                                講義ページにコメントとコメント返しの機能を作りました。
+                            </li>
+                            <li>講義ページの作成はADMINだけ出来るように設定しました。</li>
+                            <li>Transactionalを利用し、ヒット数の機能を作りました。</li>
+                            <li>Lecture　テーブルに作成日と修正日のアトリビュートを追加して構成しました。</li>
+                            <li>JavaScriptを使用し、タイトルと内容の部分だけを<br>
+                                印刷出来るようにしました。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="img/new4.jpg" alt="" style="width: 90%; margin:auto;">
+                        </div>
+                    </div>
+                    <div>
+                        <h5>3. 掲示板</h5>
+                        <ul style="text-align: left; margin-top: 20px;">
+                            <li>PageとPageableを利用してPagingをしました。</li>
+                            <li>タイトルと内容を探せる検索の機能を作りました。</li>
+                            <li>掲示した物は本人のみ削除や修正が出来るようにして
+                                ADMINとMANAGERの権限は管理のため<br>
+                                全ての掲示物を削除出来るように設定しました。
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="img/new5.jpg" alt="" style="width: 90%; margin:auto;">
+                        </div>
+                    </div>
+                    <div>
+                        <h5>4. ファイルのアップロード / ファイルのダウンロード</h5>
+                        <ul style="text-align: left; margin-top: 20px;">
+                            <li>MultipartFileを使用してイメージのアップロードの機能を作りました。</li>
+                            <li>UUIDを使ってイメージ名の重複防ぎながら、区別する物として使用しました。</li>
+                            <li>イメージの削除は本人だけ出来るように設定し、
+                                ADMINとMANAGERも管理のため、全てのイメージを削除出来るように設定しました。
+                            </li>
+                            <li>Album テーブルにイメージの経路と拡張子のアトリビュートを作りました。</li>
+                            <li>アップロードされたイメージを共有出来ますように、ダウンロード機能を作りました。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="img/new6.jpg" alt="" style="width: 90%; margin:auto;">
+                        </div>
+                    </div>
+                    <div>
+                        <h5>5. GoogleMap / スポット</h5>
+                        <ul style="text-align: left; margin-top: 20px;">
+                            <li>Google Map APIを利用してMapをページに入れてみました。</li>
+                            <li>位置の緯度と軽度と内容を入力して保存のボタンを押すと<br>
+                                ご本人だけの「ToGoList」を作れるように構成してみました。<br>
+                                しかし, 緯度と軽度を得るためには<br>
+                                GoogleMapに入って得る必要がある苦労がございます。
+                            </li>
+                            <li>돋보기虫眼鏡の絵文字押すと<br>
+                                 GoogleMapのサイトで各スポットの位置を検索出来るように設定しました。 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-5 mb-3">
+                    <a class="btn-view" href="http://gggyo.cafe24.com/index.jsp" target="_blank">VIEW WEBSITE</a>
+                    <a class="btn-view" href="https://github.com/minbeenSon/springboot.git" target="_blank">VIEW
+                        CODE</a>
+                </div>
+            </div>
+
+            <div class="japanese white-box mt-5">
                 <h4 style="font-weight: bold; padding-bottom: 25px;">Daily Japanese</h4>
                 <div class="projects-slide">
                     <div>
